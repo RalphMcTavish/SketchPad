@@ -1,21 +1,29 @@
-$(document).ready(function()
-{
-  //$('#grid').addClass('test');
-  //$('#grid').append("<div></div>");
-  //$('#grid > div').addClass('squ');
-  drawGrid(16);
+
+$(document).ready(function(){
+  drawTable(4);
+
+  $('button').click(function(){
+    length=window.prompt('Enter the length of side for new grid')
+//remove old table
+    $('tr').detach()
+    drawTable(length)
+  });
 });
-
-
-
-
-function drawGrid(count)
-{
+function drawTable(size){
   var i = 1;
-  while(i <= count)
-  {
-    $('#grid').append("<div></div>");
-    i=i+1;
+  var n = 1;
+
+  while(i<=size){
+    n=1;
+    $('table').append("<tr></tr>");
+    while(n<=size){
+      $("table tr:nth-child("+i+")").append("<td><div></div></td>");
+      n++;
+    }
+    i++;
   }
-  $('#grid > div').addClass('squ');
+  $('td div').addClass('blue');
+  $('.blue').mouseleave(function(){
+    $(this).css('background-color', 'green');
+  });
 }
