@@ -2,9 +2,9 @@
 $(document).ready(function(){
   drawTable(32);
 
-  $('td div').mouseleave(function(){
+  /* $('td div').mouseleave(function(){
 	  shade($(this));
-  });
+  }); */
 
 
   $('button').click(function(){
@@ -27,7 +27,7 @@ function drawTable(size){
     n=1;
     $('table').append("<tr></tr>");
     while(n<=size){
-      $("table tr:nth-child("+i+")").append("<td><div></div></td>");
+      $("table tr:nth-child("+i+")").append("<td><div onmouseleave='shade(this)'></div></td>");
       n++;
     }
     i++;
